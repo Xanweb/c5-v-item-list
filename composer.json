@@ -1,0 +1,20 @@
+{
+  "name": "xanweb/item-list-vue",
+  "description": "Manage your list of items easily without need to write a bunch of code",
+  "keywords": ["js", "Item List", "template", "entry list"],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.2",
+    "xanweb/c5-ext-asset": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Xanweb\\ItemListVue\\": "src/",
+      "Xanweb\\ItemListVue\\Controller\\": "controllers/"
+    }
+  },
+  "support": {
+    "source": "https://github.com/Xanweb/item-list-vue.git"
+  }
+}
