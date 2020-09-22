@@ -10,7 +10,7 @@ __MACOSX
 .ftpquota
 
 # ignore node files
-/node_modules/*
+/build/node_modules/*
 
 # ignore composer files
 composer.phar
