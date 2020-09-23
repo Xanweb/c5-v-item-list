@@ -12,7 +12,7 @@ mix.webpackConfig({
 
 mix.setPublicPath('..');
 
-mix.js('assets/js/index.js', 'js/')
+mix.js('assets/js/index.js', 'js/c5-item-list.js')
     .disableNotifications();
 
 // Disable mix-manifest.json

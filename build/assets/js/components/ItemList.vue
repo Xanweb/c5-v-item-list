@@ -1,27 +1,31 @@
 <template>
   <div class="item-list">
     <div class="item-list__menu">
-      <item v-for="(item, index) in items" :key="index" :item="item">
-        <template v-slot:item="slotProps">
-          <slot name="item" :item="slotProps.item" :index="index" :deleteEvent="deleteItem">
-          </slot>
-        </template>
-      </item>
+      <slick-list lockAxis="y" v-model="items">
+        <slick-item v-for="(item, index) in items" :index="index" :key="index">
+          <item :key="index" :item="item">
+            <template v-slot:item="slotProps">
+              <slot name="item" :item="slotProps.item" :index="index" :deleteEvent="deleteItem">
+              </slot>
+            </template>
+          </item>
+        </slick-item>
+      </slick-list>
     </div>
     <div class="item-list__setting">
       <slot name="setting" :addNewItem="addNewItem">
       </slot>
     </div>
-
   </div>
 </template>
-
 <script>
   import Item from './Item'
-
+  import { SlickList, SlickItem } from 'vue-slicksort';
   export default {
     components: {
       Item,
+      SlickList,
+      SlickItem
     },
     mounted() {
     },
