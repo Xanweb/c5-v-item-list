@@ -10,8 +10,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Xanweb\\VItemListVue\\": "src/",
-      "Xanweb\\VItemListVue\\Controller\\": "controllers/"
+      "Xanweb\\VItemList\\": "src/",
+      "Xanweb\\VItemList\\Controller\\": "controllers/"
     }
   },
   "support": {
