@@ -1,11 +1,11 @@
 <?php
-namespace Xanweb\ItemListVue;
+namespace Xanweb\VItemListVue;
 
 use Concrete\Core\Asset\AssetList;
 use Concrete\Core\Foundation\Service\Provider as CoreServiceProvider;
 use Concrete\Core\Support\Facade\Route;
 use Xanweb\ExtAsset\Asset\VendorAssetManager;
-use Xanweb\ItemListVue\Route\RouteList;
+use Xanweb\VItemListVue\Route\RouteList;
 
 class ServiceProvider extends CoreServiceProvider
 {

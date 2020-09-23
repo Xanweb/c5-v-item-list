@@ -1,5 +1,5 @@
 <?php
-namespace Xanweb\ItemListVue\Route;
+namespace Xanweb\VItemListVue\Route;
 
 use Concrete\Core\Routing\RouteListInterface;
 use Concrete\Core\Routing\Router;

@@ -1,5 +1,5 @@
 <?php
-namespace Xanweb\ItemListVue\Block;
+namespace Xanweb\VItemListVue\Block;
 
 use Concrete\Core\Block\BlockController as CoreBlockController;
 use Concrete\Core\Cache\Level\ExpensiveCache;
