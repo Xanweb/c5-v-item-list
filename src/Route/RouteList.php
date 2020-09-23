@@ -11,7 +11,7 @@ class RouteList implements RouteListInterface
         $router->buildGroup()
             ->setNamespace('Xanweb\ItemList\Controller')
             ->routes(function (Router $r) {
-                $r->get('/xw/item-list/js/defaults.js', 'JavascriptAssetDefaults::getJavascript');
+                $r->get('/xw/v-item-list/js/defaults.js', 'JavascriptAssetDefaults::getJavascript');
             });
     }
 }

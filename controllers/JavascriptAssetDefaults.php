@@ -1,5 +1,5 @@
 <?php
-namespace Xanweb\ItemListVue\Controller;
+namespace Xanweb\VItemListVue\Controller;
 
 use Concrete\Core\Controller\Controller;
 use Concrete\Core\Http\ResponseFactoryInterface;

@@ -19,21 +19,21 @@ class ServiceProvider extends CoreServiceProvider
     protected function registerAssets(): void
     {
         VendorAssetManager::registerMultiple([
-            'xw/item-list' => [
-                ['vendor-javascript', 'js/c5-item-list.js', 'xanweb/item-list-vue', ['minify' => false]],
+            'xw/v-item-list' => [
+                ['vendor-javascript', 'js/c5-item-list.js', 'xanweb/v-item-list', ['minify' => false]],
             ],
         ]);
 
         $al = AssetList::getInstance();
-        $al->register('javascript-localized', 'xw/item-list/defaults', '/xw/item-list/js/defaults.js');
+        $al->register('javascript-localized', 'xw/v-item-list/defaults', '/xw/v-item-list/js/defaults.js');
 
         VendorAssetManager::registerGroupMultiple([
-            'xanweb/item-list-vue' => [
+            'xanweb/v-item-list' => [
                 [
                     ['javascript', 'jquery'],
                     ['javascript', 'underscore'],
-                    ['javascript-localized', 'xw/item-list/defaults'],
-                    ['vendor-javascript', 'xw/item-list'],
+                    ['javascript-localized', 'xw/v-item-list/defaults'],
+                    ['vendor-javascript', 'xw/v-item-list'],
                 ],
             ],
         ]);
