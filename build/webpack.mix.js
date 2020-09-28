@@ -4,10 +4,6 @@ mix.webpackConfig({
     resolve: {
         symlinks: false
     },
-    externals: {
-        jquery: 'jQuery',
-        vue: 'Vue'
-    }
 })
 
 mix.setPublicPath('..');

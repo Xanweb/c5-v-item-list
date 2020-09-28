@@ -1,18 +1,20 @@
 <template>
   <div class="item">
-    <slot name="item" :item="item"></slot>
+    <slot :item="item"></slot>
   </div>
 </template>
 
 <script>
-
-  export default {
-    data() { return {} },
-    props: {
-      item: {
-        type: Object,
-        required: true
-      }
+import { ElementMixin, HandleDirective } from 'vue-slicksort';
+export default {
+  mixins: [ElementMixin],
+  directives: { handle: HandleDirective },
+  data() { return {} },
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
   }
+}
 </script>
