@@ -1,7 +1,7 @@
 <template>
   <div class="item-list">
     <div class="item-list__menu">
-      <slot :items="items">
+      <slot :items="items" :deleteEvent="deleteItem">
       </slot>
     </div>
     <div class="item-list__setting">
