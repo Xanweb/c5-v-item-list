@@ -11,7 +11,6 @@ import { ContainerMixin} from 'vue-slicksort';
 export default {
   mixins: [ContainerMixin],
   mounted() {
-    this.useDragHandle = true
   },
   data() {
     return {
@@ -44,6 +43,10 @@ export default {
       default: () => {
         return {}
       }
+    },
+    useDragHandle: {
+      type: Boolean,
+      default: true
     }
   }
 }
