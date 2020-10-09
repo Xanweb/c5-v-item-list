@@ -1,14 +1,7 @@
 <template>
   <div class="item-list">
-    <div class="item-list__menu">
-      <slot :items="items" :deleteEvent="deleteItem">
-      </slot>
-    </div>
-    <div class="item-list__setting">
-      <slot name="setting" :addNewItem="addNewItem">
-      </slot>
-    </div>
-
+    <slot :items="items" :deleteEvent="deleteItem" :addNewItem="addNewItem">
+    </slot>
   </div>
 </template>
 
@@ -18,6 +11,7 @@ import { ContainerMixin} from 'vue-slicksort';
 export default {
   mixins: [ContainerMixin],
   mounted() {
+    this.useDragHandle = true
   },
   data() {
     return {
