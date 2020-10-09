@@ -12,13 +12,17 @@ export default {
       currentValue: this.getDefaultValue(),
       xwDefaults: $.extend({
         editor: {
-          initRichTextEditor: editors => {}
+          initRichTextEditor: editors => {},
+          destroyRichTextEditor: editor => {}
         }
       }, xanweb || {})
     }
   },
   mounted() {
     this.initEditor($(this.$refs.editor))
+  },
+  destroyed() {
+    this.destroyEditor($(this.$refs.editor))
   },
   methods: {
     getDefaultValue() {
@@ -38,6 +42,12 @@ export default {
       type: Function,
       default(editors) {
         return this.xwDefaults.editor.initRichTextEditor(editors)
+      }
+    },
+    destroyEditor: {
+      type: Function,
+      default(editors) {
+        return this.xwDefaults.editor.destroyRichTextEditor(editors)
       }
     }
   }

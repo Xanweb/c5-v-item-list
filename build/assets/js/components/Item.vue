@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <slot :item="item"></slot>
+    <slot></slot>
   </div>
 </template>
 
@@ -11,10 +11,6 @@ export default {
   directives: { handle: HandleDirective },
   data() { return {} },
   props: {
-    item: {
-      type: Object,
-      required: true
-    }
   }
 }
 </script>

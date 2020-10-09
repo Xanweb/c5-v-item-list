@@ -17,9 +17,15 @@ export default {
     }
   },
   methods: {
-    addNewItem() {
+    addNewItem(method) {
+      method = method || null
       const defaultItem = { ...this.defaultItem }
-      this.items.push(defaultItem)
+
+      if (method == 'unshift') {
+        this.items.unshift(defaultItem)
+      } else {
+        this.items.push(defaultItem)
+      }
     },
     deleteItem(index) {
       this.items.splice(index, 1)
