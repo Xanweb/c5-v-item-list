@@ -5,12 +5,14 @@ use Concrete\Core\Asset\AssetList;
 use Concrete\Core\Foundation\Service\Provider as CoreServiceProvider;
 use Concrete\Core\Support\Facade\Route;
 use Xanweb\ExtAsset\Asset\VendorAssetManager;
+use Xanweb\VItemList\Controller\JavascriptAssetDefaults;
 use Xanweb\VItemList\Route\RouteList;
 
 class ServiceProvider extends CoreServiceProvider
 {
     public function register(): void
     {
+        $this->app->singleton(JavascriptAssetDefaults::class);
         $router = Route::getFacadeRoot();
         $router->loadRouteList($this->app->build(RouteList::class));
         $this->registerAssets();
