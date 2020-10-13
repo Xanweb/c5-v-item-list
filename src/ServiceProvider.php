@@ -12,9 +12,6 @@ class ServiceProvider extends CoreServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(JavascriptAssetDefaults::class);
-        $router = Route::getFacadeRoot();
-        $router->loadRouteList($this->app->build(RouteList::class));
         $this->registerAssets();
     }
 
@@ -26,15 +23,11 @@ class ServiceProvider extends CoreServiceProvider
             ],
         ]);
 
-        $al = AssetList::getInstance();
-        $al->register('javascript-localized', 'xw/v-item-list/defaults', '/xw/v-item-list/js/defaults.js');
-
         VendorAssetManager::registerGroupMultiple([
             'xanweb/v-item-list' => [
                 [
                     ['javascript', 'jquery'],
                     ['javascript', 'underscore'],
-                    ['javascript-localized', 'xw/v-item-list/defaults'],
                     ['vendor-javascript', 'xw/v-item-list'],
                 ],
             ],
