@@ -1,0 +1,112 @@
+$item-list-class:                         'xw-item-list' !default;
+$item-list-panel-heading-bg:              white !default;
+$item-list-panel-heading-border-color:    #e3e3e3 !default;
+$item-list-panel-heading-color:           #31708f !default;
+$item-list-item-bg:                       #fff !default;
+$item-list-image-selector-bg:             #dedede !default;
+$item-list-image-selector-border-color:   #cdcdcd !default;
+$item-list-item-border-color:             #e3e3e3 !default;
+$item-list-item-drag-handle-bg:           #f8f8f8 !default;
+
+@import "basics";
+
+.ccm-ui {
+  .#{$item-list-class} {
+    $this: &;
+
+    @import "alert";
+
+    &__img-selector {
+      padding: 5px;
+      cursor: pointer;
+      background: $item-list-image-selector-bg;
+      border: 1px solid $item-list-image-selector-border-color;
+      text-align: center;
+      vertical-align: middle;
+      width: 72px;
+      height: 72px;
+      display: table-cell;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    &__items {
+      padding-bottom: 30px;
+    }
+
+    &__item {
+      position: relative;
+      padding: 0 15px;
+      margin-left: 0;
+      margin-right: 0;
+      background: $item-list-item-bg;
+      border: 1px solid $item-list-item-border-color;
+      border-radius: 2px;
+      margin-bottom: 20px;
+
+      .drag-handle {
+        cursor: move !important;
+        padding: 2px 8px;
+        font-size: 14px;
+        line-height: 1.5;
+        border-radius: 1px;
+        position: absolute;
+        background: $item-list-item-drag-handle-bg;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .panel-heading {
+      margin-left: -15px;
+      background: $item-list-panel-heading-bg;
+      border-bottom: 1px solid $item-list-panel-heading-border-color;
+      color: $item-list-panel-heading-color;
+      border-bottom: 0;
+      padding: 10px 40px 10px 15px;
+      cursor: default;
+
+      label {
+        padding-top: 3px;
+      }
+
+      .drag-handle {
+        cursor: move !important;
+      }
+
+      .btn-delete-item i {
+        margin-top: 13px;
+      }
+
+      .btn-group-xs > .btn-delete-item {
+        position: initial;
+      }
+    }
+
+    .panel-body {
+      width: 100%;
+      padding: 10px 0;
+
+      .form-group-sm {
+        margin-bottom: 15px;
+      }
+    }
+
+    .well {
+      padding: 0 15px;
+      margin-left: 0;
+      margin-right: 0;
+      background: $item-list-item-bg;
+    }
+
+    .btn-success {
+      margin-bottom: 20px;
+    }
+
+    .ui-state-highlight {
+      height: 80px;
+      margin-bottom: 15px;
+    }
+  }
+}

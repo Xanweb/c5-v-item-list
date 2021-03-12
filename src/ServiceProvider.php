@@ -20,6 +20,7 @@ class ServiceProvider extends CoreServiceProvider
         VendorAssetManager::registerMultiple([
             'xw/v-item-list' => [
                 ['vendor-javascript', 'js/c5-item-list.js', 'xanweb/v-c5-item-list', ['minify' => false]],
+                ['vendor-css', 'css/item-list.css', 'xanweb/v-c5-item-list', ['minify' => false]],
             ],
         ]);
 
@@ -29,7 +30,7 @@ class ServiceProvider extends CoreServiceProvider
                     ['javascript', 'jquery'],
                     ['javascript', 'underscore'],
                     ['vendor-javascript', 'xw/v-item-list'],
-                ],
+                    ['vendor-css', 'xw/v-item-list']                ],
             ],
         ]);
     }
