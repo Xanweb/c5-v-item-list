@@ -1,18 +1,6 @@
 <template>
     <div class="item">
+        <i  class="btn drag-handle fas fa-arrows-alt"></i>
         <slot></slot>
     </div>
 </template>
-
-<script>
-import { ElementMixin, HandleDirective } from 'vue-slicksort';
-export default {
-  mixins: [ElementMixin],
-  directives: { handle: HandleDirective },
-  data: function () {
-    return {
-    }
-  },
-
-}
-</script>

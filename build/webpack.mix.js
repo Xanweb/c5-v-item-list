@@ -6,6 +6,12 @@ mix.webpackConfig({
     },
 })
 
+mix.options({
+    terser: {
+        extractComments: false,
+    }
+})
+
 mix.setPublicPath('..');
 
 mix .sass('assets/sass/item-list.scss', 'css/item-list.css')

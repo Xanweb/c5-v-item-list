@@ -40,11 +40,12 @@ $item-list-item-drag-handle-bg:           #f8f8f8 !default;
 
       .drag-handle {
         cursor: move !important;
-        padding: 2px 8px;
+        padding: 6px 12px;
         font-size: 14px;
         line-height: 1.5;
         border-radius: 1px;
         position: absolute;
+        z-index: 100;
         background: $item-list-item-drag-handle-bg;
         top: 0;
         right: 0;
