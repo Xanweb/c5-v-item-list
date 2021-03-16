@@ -1,12 +1,12 @@
 <template>
-  <div class="xw-item-list__items" >
+  <div class="xw-item-list__items" ref="list">
       <slot :deleteEvent="deleteItem"  :addNewItem="addNewItem"></slot>
   </div>
 </template>
 
 <script>
-    export default {
-      data() {
+export default {
+    data() {
         return {
             //todo: improve this
             xwDefaults: $.extend({
@@ -15,10 +15,29 @@
                     maxItemsExceeded: 'Max items exceeded, you cannot add any more items.',
                     pageNotFound: 'Page not found'
                 }
-            }, xanweb || {})
+            }, xanweb || {}),
+
+            newItemCreated: false
         }
-      },
-      methods: {
+    },
+    updated() {
+        this.$nextTick(function () {
+            if(this.newItemCreated) {
+                const $container = $(this.$refs.list)
+                const $newItem = $container.find('.xw-item-list__item').last()
+                $newItem.find('.xw-item-list__item-expander').trigger('click')
+                const $uiDialog = $container.closest('.ui-dialog-content.ui-widget-content')
+                let scroll = $uiDialog.prop('scrollHeight')
+
+                $uiDialog.animate({
+                    scrollTop: scroll
+                }, 'slow')
+
+                this.newItemCreated = false
+            }
+        })
+    },
+    methods: {
         addNewItem(method) {
           method = method || null
           const defaultItem = { ...this.defaultItem }
@@ -28,14 +47,15 @@
           } else {
             this.items.push(defaultItem)
           }
+          this.newItemCreated = true
         },
         deleteItem(index) {
             if (confirm(this.xwDefaults.i18n.confirm)) {
                 this.items.splice(index, 1)
             }
         }
-      },
-      props: {
+    },
+    props: {
         addButtonText: {
           type: String,
           required: false,
@@ -58,6 +78,6 @@
           type: Boolean,
           default: true
         }
-      }
     }
+}
 </script>
