@@ -4,19 +4,28 @@ mix.webpackConfig({
     resolve: {
         symlinks: false
     },
+    externals: {
+        jquery: 'jQuery',
+        bootstrap: true,
+        vue: 'Vue'
+    }
 })
 
 mix.options({
+    processCssUrls: false,
+    clearConsole: false,
+    // Disable extracting licenses from comments
     terser: {
         extractComments: false,
     }
 })
 
-mix.setPublicPath('..');
+mix.setPublicPath('..')
 
-mix .sass('assets/sass/item-list.scss', 'css/item-list.css')
-    .js('assets/js/index.js', 'js/c5-item-list.js')
-    .disableNotifications();
+mix.sass('assets/sass/item-list.scss', 'css/v-item-list.css')
+    .js('assets/js/index.js', 'js/v-item-list.js')
+
+mix.disableNotifications()
 
 // Disable mix-manifest.json
 // @see https://github.com/JeffreyWay/laravel-mix/issues/580

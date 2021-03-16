@@ -14,8 +14,6 @@ $item-list-item-drag-handle-bg:           #f8f8f8 !default;
   .#{$item-list-class} {
     $this: &;
 
-    @import "alert";
-
     &__img-selector {
       padding: 5px;
       cursor: pointer;

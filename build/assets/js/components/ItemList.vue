@@ -5,24 +5,17 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            //todo: improve this
-            xwDefaults: $.extend({
-                i18n: {
-                    confirm: 'Are you sure?',
-                    maxItemsExceeded: 'Max items exceeded, you cannot add any more items.',
-                    pageNotFound: 'Page not found'
-                }
-            }, xanweb || {}),
+import xw from '../translate/index'
+const t = xw.t
 
-            newItemCreated: false
-        }
-    },
+export default {
+    data: () => ({
+        maxItemsCount: 100,
+        newItemCreated: false
+    }),
     updated() {
         this.$nextTick(function () {
-            if(this.newItemCreated) {
+            if (this.newItemCreated) {
                 const $container = $(this.$refs.list)
                 const $newItem = $container.find('.xw-item-list__item').last()
                 $newItem.find('.xw-item-list__item-expander').trigger('click')
@@ -39,18 +32,24 @@ export default {
     },
     methods: {
         addNewItem(method) {
-          method = method || null
-          const defaultItem = { ...this.defaultItem }
+            method = method || null
+            const itemsCount = this.items.length
+            if (this.maxItemsCount > 0 && itemsCount >= this.maxItemsCount) {
+                alert(t('maxItemsExceeded'))
+                return false
+            }
 
-          if (method == 'unshift') {
-            this.items.unshift(defaultItem)
-          } else {
-            this.items.push(defaultItem)
-          }
-          this.newItemCreated = true
+            const defaultItem = {...this.defaultItem}
+            if (method === 'unshift') {
+                this.items.unshift(defaultItem)
+            } else {
+                this.items.push(defaultItem)
+            }
+
+            this.newItemCreated = true
         },
         deleteItem(index) {
-            if (confirm(this.xwDefaults.i18n.confirm)) {
+            if (confirm(t('confirm'))) {
                 this.items.splice(index, 1)
             }
         }
@@ -63,21 +62,22 @@ export default {
         },
         items: {
           type: Array,
-          default: () => {
-            return [];
-          }
+          default: () => []
         },
         defaultItem: {
           type: Object,
           required: false,
-          default: () => {
-            return {}
-          }
+          default: () => ({})
         },
         useDragHandle: {
           type: Boolean,
           default: true
-        }
+        },
+        maxItemsCount: {
+            type: Number,
+            default: 100,
+            required: false
+        },
     }
 }
 </script>

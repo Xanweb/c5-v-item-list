@@ -23,6 +23,14 @@ class ServiceProvider extends JavascriptDefaultsServiceProvider
                     'confirm' => t('Are you sure?'),
                     'maxItemsExceeded' => t('Max items exceeded, you cannot add any more items.'),
                     'pageNotFound' => t('Page not found'),
+                    'colorPicker' => [
+                        'cancelText' => t('Cancel'),
+                        'chooseText' => t('Choose'),
+                        'togglePaletteMoreText' => t('more'),
+                        'togglePaletteLessText' => t('less'),
+                        'noColorSelectedText' => t('No Color Selected'),
+                        'clearText' => t('Clear Color Selection'),
+                    ]
                 ],
                 'editor' => [
                     'initRichTextEditor' => $this->getInitRichTextEditorJSFunction(),
@@ -60,8 +68,8 @@ EOT;
     {
         VendorAssetManager::registerMultiple([
             'xw/v-item-list' => [
-                ['vendor-javascript', 'js/c5-item-list.js', 'xanweb/v-c5-item-list', ['minify' => false]],
-                ['vendor-css', 'css/item-list.css', 'xanweb/v-c5-item-list', ['minify' => false]],
+                ['vendor-javascript', 'js/v-item-list.js', 'xanweb/v-c5-item-list', ['minify' => false]],
+                ['vendor-css', 'css/v-item-list.css', 'xanweb/v-c5-item-list', ['minify' => false]],
             ],
         ]);
 

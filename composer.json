@@ -6,15 +6,15 @@
   "license": "MIT",
   "require": {
     "php": ">=7.2",
+    "xanweb/c5-foundation": "^1.4",
     "xanweb/c5-ext-asset": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "Xanweb\\VItemList\\": "src/",
-      "Xanweb\\VItemList\\Controller\\": "controllers/"
+      "Xanweb\\VItemList\\": "src"
     }
   },
   "support": {
-    "source": "https://github.com/Xanweb/v-c5-item-list.git"
+    "source": "https://github.com/Xanweb/v-c5-item-list"
   }
 }

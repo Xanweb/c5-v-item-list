@@ -3,46 +3,47 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                //Todo: Improve this
-                options: {
-                    cancelText: 'Cancel',
-                    chooseText: 'Choose',
-                    togglePaletteMoreText: 'more',
-                    togglePaletteLessText: 'less',
-                    noColorSelectedText: 'No Color Selected',
-                    clearText: 'Clear Color Selection',
-                    className: 'ccm-widget-colorpicker',
-                    showInitial: true,
-                    showInput: true,
-                    allowEmpty: true,
-                    preferredFormat: 'rgb',
-                    showAlpha: false,
-                    appendTo: '.ui-dialog',
-                }
-            }
-        },
+import xw from '../translate/index'
+const t = xw.t
 
-        mounted() {
-            const $inputElement = $(this.$refs.input)
-            let options = this.options
-            if ($inputElement.data('options')) {
-                $.extend(true, options, $inputElement.data('options'))
-            }
-            $inputElement.spectrum(options)
-        },
+export default {
+    data: () => ({
+        options: {
+            cancelText: t('colorPicker.cancelText'),
+            chooseText: t('colorPicker.chooseText'),
+            togglePaletteMoreText: t('colorPicker.togglePaletteMoreText'),
+            togglePaletteLessText: t('colorPicker.togglePaletteLessText'),
+            noColorSelectedText: t('colorPicker.noColorSelectedText'),
+            clearText: t('colorPicker.clearText'),
+            className: 'ccm-widget-colorpicker',
+            showInitial: true,
+            showInput: true,
+            allowEmpty: true,
+            preferredFormat: 'rgb',
+            showAlpha: false,
+            appendTo: '.ui-dialog',
+        }
+    }),
 
-        props: {
-            inputName: {
-                type: String,
-                required: true
-            },
-            customOptions: {
-                type: String,
-                required: false
-            }
+    mounted() {
+        const $inputElement = $(this.$refs.input)
+        let options = this.options
+        if ($inputElement.data('options')) {
+            $.extend(true, options, $inputElement.data('options'))
+        }
+
+        $inputElement.spectrum(options)
+    },
+
+    props: {
+        inputName: {
+            type: String,
+            required: true
+        },
+        customOptions: {
+            type: String,
+            required: false
         }
     }
+}
 </script>

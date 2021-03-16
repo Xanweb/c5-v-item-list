@@ -3,7 +3,7 @@ import PageSelector from './components/PageSelector'
 import RichTextEditor from './components/RichTextEditor'
 import Item from './components/Item'
 import ColorPicker from './components/ColorPicker'
-import draggable from "vuedraggable"
+import Draggable from 'vuedraggable'
 
 Concrete.Vue.createContext('itemList', {
     ItemList,
@@ -11,6 +11,6 @@ Concrete.Vue.createContext('itemList', {
     PageSelector,
     RichTextEditor,
     ColorPicker,
-    draggable
+    Draggable
 }, 'cms')
 

@@ -1,29 +1,21 @@
 {
-  "name": "item-list",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run production -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "update-browserlist": "npx browserslist --update-db"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "vuedraggable": "^2.24.3"
+  },
   "devDependencies": {
+    "caniuse-lite": "^1.0",
     "cross-env": "^7.0.3",
     "laravel-mix": "^5.0.9",
     "resolve-url-loader": "^3.1.2",
     "sass": "^1.32.8",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^10.1.1",
     "vue-template-compiler": "^2.6.12"
-  },
-  "dependencies": {
-    "vue": "^2.6.11",
-    "vuedraggable": "^2.24.3"
   }
 }
