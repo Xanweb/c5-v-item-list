@@ -61,13 +61,10 @@ export default {
         }
     },
     props: {
+        value: String,
         inputName: {
             type: String,
             required: true
-        },
-        value: {
-            type: String,
-            default: ''
         },
         height: {
             type: Number,

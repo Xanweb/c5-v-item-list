@@ -1,5 +1,5 @@
 <template>
-    <input class="ccm-widget-colorpicker" type="text" :name="inputName" :data-options="customOptions" ref="input"/>
+    <input class="ccm-widget-colorpicker" type="text" :name="inputName" :value="value" @input="$emit('input', $event.target.value)"/>
 </template>
 
 <script>
@@ -26,22 +26,20 @@ export default {
     }),
 
     mounted() {
-        const $inputElement = $(this.$refs.input)
-        let options = this.options
-        if ($inputElement.data('options')) {
-            $.extend(true, options, $inputElement.data('options'))
-        }
-
-        $inputElement.spectrum(options)
+        let options = { ...this.options }
+        $.extend(true, options, this.customOptions)
+        $(this.$el).spectrum(options)
     },
 
     props: {
+        value: String,
         inputName: {
             type: String,
             required: true
         },
         customOptions: {
-            type: String,
+            type: Object,
+            default: {},
             required: false
         }
     }
