@@ -66,8 +66,7 @@ export default {
         },
         defaultItem: {
           type: Object,
-          required: false,
-          default: () => ({})
+          required: true
         },
         useDragHandle: {
           type: Boolean,
