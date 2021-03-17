@@ -11,7 +11,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Xanweb\\VItemList\\": "src"
+      "Xanweb\\C5\\VueItemList\\": "src"
     }
   },
   "support": {

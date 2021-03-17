@@ -1,7 +1,5 @@
 <template>
-  <textarea :id="id" :name="inputName" class="form-control" ref="editor" v-model="currentValue">
-    <slot />
-  </textarea>
+  <textarea :id="id" :name="inputName" class="form-control" v-model="model" :style="styles" @input="onInput"></textarea>
 </template>
 
 <script>
@@ -9,27 +7,72 @@
 export default {
     data: () => ({
         id: _.uniqueId('editor'),
-        currentValue: this.getDefaultValue(),
+        localValue: this.value,
     }),
-    mounted() {
-        this.initEditor($(this.$refs.editor))
+    created() {
+        this.setFieldValue()
     },
-    destroyed() {
-        this.destroyEditor($(this.$refs.editor))
+    mounted() {
+        this.initEditor($(this.$el))
+    },
+    beforeDestroy() {
+        this.destroyEditor($(this.$el))
     },
     methods: {
-        getDefaultValue() {
-            if (this.$slots.default && this.$slots.default.length) {
-                return this.$slots.default[0].text
+        setFieldValue() {
+            this.value = this.model
+        },
+        onInput() {
+            this.setFieldValue()
+        }
+    },
+    computed: {
+        model: {
+            get() {
+                return this.localValue
+            },
+            set(value) {
+                if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
+                    this.$nextTick(() => {
+                        this.localValue = value
+                    })
+                }
+            }
+        },
+        styles() {
+            if (!(this.height > 0)) {
+                return {}
             }
 
-            return ''
+            return {
+                'min-height': this.height + 'px'
+            }
+        }
+    },
+    watch: {
+        model() {
+            this.setFieldValue()
+        },
+        localValue(val) {
+            this.$emit('input', val)
+        },
+        value(val) {
+            this.localValue = val
         }
     },
     props: {
         inputName: {
             type: String,
             required: true
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        height: {
+            type: Number,
+            default: 0,
+            required: false
         },
         initEditor: {
             type: Function,

@@ -1,5 +1,6 @@
 <?php
-namespace Xanweb\VItemList;
+
+namespace Xanweb\C5\VueItemList;
 
 use Xanweb\ExtAsset\Asset\VendorAssetManager;
 use Xanweb\Foundation\Config\BeforeRenderDefaultAssetJS;
