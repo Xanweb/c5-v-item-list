@@ -7,13 +7,16 @@
 export default {
     data: () => ({
         id: _.uniqueId('editor'),
-        localValue: this.value,
+        localValue: '',
     }),
-    created() {
-        this.setFieldValue()
-    },
     mounted() {
+        this.model = this.value
         this.initEditor($(this.$el))
+        this.$nextTick(() => {
+            _.delay(() => {
+                $(this.$el).parent().find('div.cke_wysiwyg_div').css(this.styles)
+            }, 1000)
+        })
     },
     beforeDestroy() {
         this.destroyEditor($(this.$el))
@@ -32,9 +35,7 @@ export default {
                 return this.localValue
             },
             set(value) {
-                this.$nextTick(() => {
-                    this.localValue = value
-                })
+                this.localValue = value
             }
         },
         styles() {
@@ -59,7 +60,10 @@ export default {
         }
     },
     props: {
-        value: String,
+        value: {
+            type: String,
+            default: '',
+        },
         inputName: {
             type: String,
             required: true
@@ -71,22 +75,18 @@ export default {
         },
         initEditor: {
             type: Function,
-            default() {
+            default: editors => {
                 if (!_.isUndefined(window['xanweb']) && _.isObject(xanweb)) {
-                    return xanweb.editor.initRichTextEditor
+                    return xanweb.editor.initRichTextEditor(editors)
                 }
-
-                return editors => {}
             }
         },
         destroyEditor: {
             type: Function,
-            default() {
+            default: editors => {
                 if (!_.isUndefined(window['xanweb']) && _.isObject(xanweb)) {
-                    return xanweb.editor.destroyRichTextEditor
+                    return xanweb.editor.destroyRichTextEditor(editors)
                 }
-
-                return editors => {}
             }
         }
     }

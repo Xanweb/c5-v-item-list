@@ -1,6 +1,6 @@
 <template>
   <div class="xw-item-list__items" ref="list">
-      <slot :deleteEvent="deleteItem"  :addNewItem="addNewItem"></slot>
+      <slot :deleteEvent="deleteItem" :addNewItem="addNewItem"></slot>
   </div>
 </template>
 
@@ -9,27 +9,6 @@ import xw from '../translate/index'
 const t = xw.t
 
 export default {
-    data: () => ({
-        maxItemsCount: 100,
-        newItemCreated: false
-    }),
-    updated() {
-        this.$nextTick(function () {
-            if (this.newItemCreated) {
-                const $container = $(this.$refs.list)
-                const $newItem = $container.find('.xw-item-list__item').last()
-                $newItem.find('.xw-item-list__item-expander').trigger('click')
-                const $uiDialog = $container.closest('.ui-dialog-content.ui-widget-content')
-                let scroll = $uiDialog.prop('scrollHeight')
-
-                $uiDialog.animate({
-                    scrollTop: scroll
-                }, 'slow')
-
-                this.newItemCreated = false
-            }
-        })
-    },
     methods: {
         addNewItem(method) {
             method = method || null
@@ -46,7 +25,18 @@ export default {
                 this.items.push(defaultItem)
             }
 
-            this.newItemCreated = true
+            this.$nextTick(() => {
+                const $container = $(this.$refs.list)
+                const $newItem = $container.find('.xw-item-list__item').last()
+                $newItem.find('.xw-item-list__item-expander').trigger('click')
+                const $uiDialog = $container.closest('.ui-dialog-content.ui-widget-content')
+                let scroll = $uiDialog.prop('scrollHeight')
+                $uiDialog.animate({
+                    scrollTop: scroll
+                }, 'slow')
+
+                this.$emit('add-item', $newItem)
+            })
         },
         deleteItem(index) {
             if (confirm(t('confirm'))) {
@@ -55,11 +45,6 @@ export default {
         }
     },
     props: {
-        addButtonText: {
-          type: String,
-          required: false,
-          default: 'Add'
-        },
         items: {
           type: Array,
           default: () => []
@@ -80,3 +65,17 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+.xw-item-list__items::v-deep {
+    .flip-list-move {
+        transition: transform 0.5s;
+    }
+    .no-move {
+        transition: transform 0s;
+    }
+    .ghost {
+        opacity: 0.5;
+        background: #c8ebfb;
+    }
+}
+</style>
