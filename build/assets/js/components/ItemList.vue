@@ -1,6 +1,6 @@
 <template>
   <div class="xw-item-list__items" ref="list">
-      <slot :deleteEvent="deleteItem" :addNewItem="addNewItem"></slot>
+      <slot :items="items" :deleteEvent="deleteItem" :addNewItem="addNewItem"></slot>
   </div>
 </template>
 
