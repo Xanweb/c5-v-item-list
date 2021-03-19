@@ -1,10 +1,10 @@
 import Translator from './translator'
 
-export default {
-    /**
-     * Translate String
-     *
-     * @param {String} key
-     */
-    t: key => Translator.instance().translate(key)
+/**
+ * Translate String
+ *
+ * @param {String} key
+ */
+export function t(key) {
+    return Translator.instance().translate(key)
 }

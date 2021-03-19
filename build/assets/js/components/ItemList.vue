@@ -5,13 +5,11 @@
 </template>
 
 <script>
-import xw from '../translate/index'
-const t = xw.t
+import {t} from '../translate/index'
 
 export default {
     methods: {
-        addNewItem(method) {
-            method = method || null
+        addNewItem(method = 'push') {
             const itemsCount = this.items.length
             if (this.maxItemsCount > 0 && itemsCount >= this.maxItemsCount) {
                 alert(t('maxItemsExceeded'))

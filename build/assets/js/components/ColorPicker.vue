@@ -3,8 +3,7 @@
 </template>
 
 <script>
-import xw from '../translate/index'
-const t = xw.t
+import {t} from '../translate/index'
 
 export default {
     data: () => ({
