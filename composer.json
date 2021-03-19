@@ -1,5 +1,5 @@
 {
-  "name": "xanweb/v-c5-item-list",
+  "name": "xanweb/c5-v-item-list",
   "description": "Manage your list of items easily without need to write a bunch of code",
   "keywords": ["js", "Item List", "template", "entry list"],
   "type": "library",
