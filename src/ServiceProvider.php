@@ -69,8 +69,8 @@ EOT;
     {
         VendorAssetManager::registerMultiple([
             'xw/v-item-list' => [
-                ['vendor-javascript', 'js/v-item-list.js', 'xanweb/v-c5-item-list', ['minify' => false]],
-                ['vendor-css', 'css/v-item-list.css', 'xanweb/v-c5-item-list', ['minify' => false]],
+                ['vendor-javascript', 'js/v-item-list.js', 'xanweb/c5-v-item-list', ['minify' => false]],
+                ['vendor-css', 'css/v-item-list.css', 'xanweb/c5-v-item-list', ['minify' => false]],
             ],
         ]);
 
