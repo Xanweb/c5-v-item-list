@@ -1,0 +1,6 @@
+* text=auto
+
+/build/package-lock.json -diff
+
+/.* export-ignore
+/build export-ignore
