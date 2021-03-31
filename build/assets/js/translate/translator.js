@@ -3,7 +3,8 @@ import defaults from './defaults'
 
 export default class Translator {
     constructor() {
-        this.texts = $.extend(true, defaults, window['xanweb'] || {})
+        const xanweb = window['xanweb'] || {'i18n': {}}
+        this.i18n = $.extend(true, defaults, xanweb.i18n)
     }
 
     /**
@@ -12,7 +13,7 @@ export default class Translator {
      * @param  {String} key
      */
     translate(key) {
-        let texts = this.texts
+        let texts = {...this.i18n}
         for (let segment of key.split('.')) {
             if (!_.isObject(texts) || !texts.hasOwnProperty(segment)) {
                 return null
