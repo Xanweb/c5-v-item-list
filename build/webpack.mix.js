@@ -14,10 +14,6 @@ mix.webpackConfig({
 mix.options({
     processCssUrls: false,
     clearConsole: false,
-    // Disable extracting licenses from comments
-    terser: {
-        extractComments: false,
-    }
 })
 
 mix.setPublicPath('..')

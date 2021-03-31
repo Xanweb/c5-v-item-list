@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {t} from '../translate/index'
+import {t} from '../translate'
 
 export default {
     methods: {
