@@ -1,4 +1,6 @@
 # Concrete5 VueJS Item List for ConcreteCMS V9
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/xanweb/c5-v-item-list.svg?style=flat-square)](https://packagist.org/packages/xanweb/c5-v-item-list)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 Manage your list of items easily without need to write a bunch of code
 
@@ -13,7 +15,7 @@ Add the service provider to `application/config/app.php`
 ```php
 return [
     'providers' => [
-        'xw_item_list' => '\Xanweb\ItemList\ServiceProvider'
+        'xw_item_list' => '\Xanweb\C5\VueItemList\ServiceProvider'
     ],
 ];
 ```
@@ -21,7 +23,7 @@ or load it from you package on_start
 ```php
 public function on_start()
 {
-    $this->app->make(\Concrete\Core\Foundation\Service\ProviderList::class)->registerProvider(\Xanweb\ItemList\ServiceProvider::class);
+    $this->app->make(\Concrete\Core\Foundation\Service\ProviderList::class)->registerProvider(\Xanweb\C5\VueItemList\ServiceProvider::class);
 }
 ```
 
