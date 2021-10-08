@@ -76,16 +76,16 @@ export default {
         initEditor: {
             type: Function,
             default: editors => {
-                if (!_.isUndefined(window['xanweb']) && _.isObject(xanweb)) {
-                    return xanweb.editor.initRichTextEditor(editors)
+                if (!_.isUndefined(window['xw_backend']) && _.isObject(xw_backend)) {
+                    return xw_backend.editor.initRichTextEditor(editors)
                 }
             }
         },
         destroyEditor: {
             type: Function,
             default: editors => {
-                if (!_.isUndefined(window['xanweb']) && _.isObject(xanweb)) {
-                    return xanweb.editor.destroyRichTextEditor(editors)
+                if (!_.isUndefined(window['xw_backend']) && _.isObject(xw_backend)) {
+                    return xw_backend.editor.destroyRichTextEditor(editors)
                 }
             }
         }

@@ -2,8 +2,8 @@
 
 namespace Xanweb\C5\VueItemList;
 
+use Xanweb\C5\JsLocalization\Event\BackendAssetLocalizationLoad;
 use Xanweb\ExtAsset\Asset\VendorAssetManager;
-use Xanweb\C5\JsLocalization\Config\BeforeRenderDefaultAssetJS;
 use Xanweb\C5\JsLocalization\ServiceProvider as JavascriptDefaultsServiceProvider;
 
 class ServiceProvider extends JavascriptDefaultsServiceProvider
@@ -18,8 +18,8 @@ class ServiceProvider extends JavascriptDefaultsServiceProvider
 
     private function registerListeners(): void
     {
-        $this->app['director']->addListener(BeforeRenderDefaultAssetJS::NAME, function (BeforeRenderDefaultAssetJS $event) {
-            $event->getJavascriptAssetDefaults()->mergeWith([
+        $this->app['director']->addListener(BackendAssetLocalizationLoad::NAME, function (BackendAssetLocalizationLoad $event) {
+            $event->getAssetLocalization()->mergeWith([
                 'i18n' => [
                     'confirm' => t('Are you sure?'),
                     'maxItemsExceeded' => t('Max items exceeded, you cannot add any more items.'),
@@ -78,7 +78,7 @@ EOT;
             'xanweb/v-item-list' => [
                 [
                     ['vendor-javascript', 'xw/v-item-list'],
-                    ['javascript-localized', 'xw/defaults'],
+                    ['javascript-localized', 'xw/backend'],
                     ['vendor-css', 'xw/v-item-list'],
                 ],
             ],
