@@ -1,8 +1,9 @@
-# Concrete5 VueJS Item List for ConcreteCMS V9
+# ConcreteCMS VueJS Item List
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/xanweb/c5-v-item-list.svg?style=flat-square)](https://packagist.org/packages/xanweb/c5-v-item-list)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 Manage your list of items easily without need to write a bunch of code
+** Requires ConcreteCMS v9 ** 
 
 ## Installation
 
@@ -47,7 +48,7 @@ Here is an example
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-7">
-                                    <div class="float-left" data-concrete-file-input="<?= $uniqID ?>">
+                                    <div class="float-start" data-concrete-file-input="<?= $uniqID ?>">
                                         <concrete-file-input :file-id="item.fID" v-model="item.fID" input-name="<?= $view->field('fID') ?>[]" choose-text="<?= t('Choose Image') ?>"></concrete-file-input>
                                     </div>
                                 </div>
