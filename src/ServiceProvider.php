@@ -3,14 +3,16 @@
 namespace Xanweb\C5\VueItemList;
 
 use Xanweb\C5\JsLocalization\Event\BackendAssetLocalizationLoad;
+use Xanweb\C5\JsLocalization\ServiceProvider as JsLocalizationServiceProvider;
+use Xanweb\Common\Service\Provider as FoundationProvider;
 use Xanweb\ExtAsset\Asset\VendorAssetManager;
-use Xanweb\C5\JsLocalization\ServiceProvider as JavascriptDefaultsServiceProvider;
 
-class ServiceProvider extends JavascriptDefaultsServiceProvider
+class ServiceProvider extends FoundationProvider
 {
     public function _register(): void
     {
-        parent::_register();
+        $jsLocalizationSvcProvider = new JsLocalizationServiceProvider($this->app);
+        $jsLocalizationSvcProvider->register();
 
         $this->registerListeners();
         $this->registerAssets();
