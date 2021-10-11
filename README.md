@@ -179,4 +179,4 @@ Here is an example
 ```
 
 ## License
-The Concrete5 Item List is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The ConcreteCMS Item List is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
