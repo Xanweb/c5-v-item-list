@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "watch": "npm run production -- --watch",
+    "watch": "npm run development -- --watch",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "update-browserlist": "npx browserslist --update-db"
