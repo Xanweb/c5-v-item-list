@@ -4,11 +4,20 @@ import Item from './components/Item'
 import ColorPicker from './components/ColorPicker'
 import Draggable from 'vuedraggable'
 
-Concrete.Vue.createContext('itemList', {
-    ItemList,
-    Item,
-    RichTextEditor,
-    ColorPicker,
-    Draggable
-}, 'cms')
+if(typeof Concrete !== 'undefined') {
+    createContext()
+} else {
+    window.addEventListener('concrete.vue.ready', function () {
+        createContext()
+    })
+}
 
+function createContext() {
+    Concrete.Vue.createContext('itemList', {
+        ItemList,
+        Item,
+        RichTextEditor,
+        ColorPicker,
+        Draggable
+    }, 'cms')
+}
