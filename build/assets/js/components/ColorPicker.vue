@@ -8,6 +8,7 @@ import {t} from '../translate'
 export default {
     data: () => ({
         options: {
+            type: 'color',
             cancelText: t('colorPicker.cancelText'),
             chooseText: t('colorPicker.chooseText'),
             togglePaletteMoreText: t('colorPicker.togglePaletteMoreText'),
